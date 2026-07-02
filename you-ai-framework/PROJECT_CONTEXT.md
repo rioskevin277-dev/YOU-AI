@@ -123,7 +123,7 @@ Los agentes de IA que trabajen en YOU AI deben seguir estas reglas de comportami
 
 ### Rol y alcance
 
-- Tu rol está definido en el archivo de agente correspondiente dentro de `agents/`. Conocelo y respetalo.
+- Tu rol está definido en el archivo de agente correspondiente dentro de `ai/agents/`. Conocelo y respetalo.
 - No asumas tareas que no te fueron asignadas. Si algo no está claro, preguntá.
 - Si tu rol es "arquitecto", no actúes como PM. Si tu rol es "backend", no diseñes interfaces.
 

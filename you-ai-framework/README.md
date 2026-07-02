@@ -27,8 +27,11 @@ Cada cliente llega con un problema de negocio. Sin un proceso definido, es fáci
 | `docs/02-standards/` | Estándares internos de documentación, git, arquitectura y codificación. |
 | `templates/` | Plantillas reutilizables para README, contexto de proyecto, descubrimiento, MVP y arquitectura. |
 | `playbooks/` | Guías paso a paso para las situaciones más comunes: primer cliente, sesión de descubrimiento, revisión semanal y entrega. |
-| `prompts/` | Prompts base para que los agentes de IA trabajen con roles definidos dentro del framework. |
-| `agents/` | Definiciones de agentes de IA con instrucciones de rol y alcance. |
+| `ai/` | Configuración del ecosistema de IA del framework. |
+| `ai/context/` | Contextos permanentes que definen cómo debe operar cada agente. |
+| `ai/agents/` | Definiciones de agentes de IA con instrucciones de rol y alcance. |
+| `ai/workflows/` | Secuencias de trabajo automatizadas entre agentes. |
+| `ai/templates/` | Plantillas de prompts para cada tipo de interacción. |
 | `examples/` | Ejemplos de proyectos anteriores (completados con el framework). |
 
 ## Cómo debe utilizarse
@@ -42,7 +45,7 @@ Cada cliente llega con un problema de negocio. Sin un proceso definido, es fáci
 5. **Cada semana** — revisar `playbooks/weekly-review.md` para mantener el rumbo.
 6. **Al entregar** — usar `playbooks/delivery.md` como checklist de cierre.
 
-Los `prompts/` y `agents/` están diseñados para que los agentes de IA trabajen dentro del framework con roles bien definidos. Cada vez que se inicia una sesión con un agente, se debe cargar su prompt y definición de rol correspondientes.
+La carpeta `ai/` contiene todo lo necesario para que los agentes de IA trabajen dentro del framework con roles, contextos y flujos bien definidos. Cada vez que se inicia una sesión con un agente, se debe cargar su contexto, prompt y definición de rol desde `ai/context/` y `ai/agents/`.
 
 ## Estructura del proyecto
 
@@ -56,8 +59,11 @@ you-ai-framework/
 │   └── 02-standards/            ← Estándares internos
 ├── templates/                   ← Plantillas reutilizables
 ├── playbooks/                   ← Guías operativas
-├── prompts/                     ← Prompts para agentes de IA
-├── agents/                      ← Definiciones de agentes
+├── ai/
+│   ├── context/                 ← Contextos permanentes para agentes
+│   ├── agents/                  ← Definiciones de agentes
+│   ├── workflows/               ← Secuencias de trabajo entre agentes
+│   └── templates/               ← Plantillas de prompts
 └── examples/                    ← Proyectos de referencia
 ```
 
@@ -92,7 +98,7 @@ El flujo estándar para cualquier nuevo cliente es el siguiente:
 ### Paso 5 — Desarrollo y estándares
 
 1. Seguir los estándares de `docs/02-standards/` durante toda la ejecución.
-2. Usar los prompts y agentes según el rol necesario en cada etapa.
+2. Usar los contextos, agentes y flujos de `ai/` según el rol necesario en cada etapa.
 3. Mantener la documentación actualizada a medida que avanza el proyecto.
 
 ### Paso 6 — Revisión y entrega
